@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./Interview.css";
+import "./interview.css";
 
 function CameraPanel({ onDisconnect }) {
   const videoRef = useRef(null);

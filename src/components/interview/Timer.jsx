@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Interview.css";
+import "./interview.css";
 
 function Timer({
 

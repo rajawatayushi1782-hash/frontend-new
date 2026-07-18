@@ -1,4 +1,4 @@
-import "./Interview.css";
+import "./interview.css";
 
 function ConfirmModal({
   open,

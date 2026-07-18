@@ -1,5 +1,5 @@
 import SpeechRecognition from "react-speech-recognition";
-import "./Interview.css";
+import "./interview.css";
 
 function VoiceControls({
   listening,
