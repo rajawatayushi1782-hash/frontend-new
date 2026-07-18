@@ -1,0 +1,103 @@
+.loading-container{
+    margin-top:30px;
+    background:#111827;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.08);
+    animation:fadeIn .5s ease;
+}
+
+.robot-icon{
+    font-size:65px;
+    color:#38bdf8;
+    margin-bottom:20px;
+    animation:float 2s infinite ease-in-out;
+}
+
+.loading-container h2{
+    color:white;
+    margin-bottom:12px;
+}
+
+.loading-container p{
+    color:#94a3b8;
+    margin-bottom:25px;
+}
+
+.progress-bar{
+    width:100%;
+    height:12px;
+    border-radius:20px;
+    background:#1e293b;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#2563eb,#06b6d4);
+    animation:progress 3s forwards;
+}
+
+.loading-steps{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    text-align:left;
+}
+
+.step{
+    color:#e2e8f0;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.step svg{
+    color:#22c55e;
+}
+
+@keyframes progress{
+
+0%{
+width:0%;
+}
+
+100%{
+width:100%;
+}
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}

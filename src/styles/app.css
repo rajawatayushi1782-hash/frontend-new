@@ -1,0 +1,10 @@
+/* App Level Styling */
+
+#root{
+  width:100%;
+  min-height:100vh;
+}
+
+section{
+  padding:80px 8%;
+}
