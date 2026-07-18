@@ -23,6 +23,7 @@ import LearningRoadmap from "../components/report/LearningRoadmap";
 import ResumeMatchCard from "../components/report/ResumeMatchCard";
 import SkillGapCard from "../components/report/SkillGapCard";
 import HiringProbabilityCard from "../components/report/HiringProbabilityCard";
+import { API_URL } from "../config";
 function Report() {
     const reportRef = useRef(null);
 
@@ -66,12 +67,9 @@ const [insights, setInsights] = useState(null);
       try {
 
         const response =
-          await axios.get(
-
-            `http://localhost:5000/api/ai/report/${interviewId}`
-
-          );
-
+  await axios.get(
+    `${API_URL}/api/ai/report/${interviewId}`
+  );
         setReport(
           response.data.report
         );

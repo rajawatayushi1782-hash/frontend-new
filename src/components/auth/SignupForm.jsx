@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signupSchema } from "../../validation/signupSchema";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 import {
   FaEye,
@@ -73,13 +74,13 @@ function SignupForm() {
     setLoading(true);
 
     const response = await axios.post(
-      "http://localhost:5000/api/auth/signup",
-      {
-        fullName: data.name,
-        email: data.email,
-        password: data.password,
-      }
-    );
+  `${API_URL}/api/auth/signup`,
+  {
+    fullName: data.name,
+    email: data.email,
+    password: data.password,
+  }
+);
 
     alert(response.data.message);
 

@@ -1,6 +1,7 @@
 import axios from "axios";
+import { API_URL } from "../config";
 
-const API = "http://localhost:5000/api/ai";
+const API = `${API_URL}/api/ai`;
 
 export const startInterview = async (data) => {
   const response = await axios.post(

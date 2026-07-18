@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../styles/auth.css";
 
+import { API_URL } from "../../config";
 function LoginForm() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -19,12 +20,12 @@ function LoginForm() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        {
-          email: data.email,
-          password: data.password,
-        }
-      );
+  `${API_URL}/api/auth/login`,
+  {
+    email: data.email,
+    password: data.password,
+  }
+);
 
       // Save JWT Token
       localStorage.setItem("token", response.data.token);

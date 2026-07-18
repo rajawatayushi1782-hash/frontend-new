@@ -128,12 +128,12 @@ useEffect(() => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/ai/violation",
-          {
-            interviewId: state.interviewId,
-            type: "tab",
-          }
-        );
+  `${API_URL}/api/ai/violation`,
+  {
+    interviewId: state.interviewId,
+    type: "tab",
+  }
+);
 
         if (response.data.status === "terminated") {
           navigate("/dashboard");
@@ -215,12 +215,12 @@ useEffect(() => {
     if (!document.fullscreenElement) {
       try {
   const response = await axios.post(
-    "http://localhost:5000/api/ai/violation",
-    {
-      interviewId: state.interviewId,
-      type: "fullscreen",
-    }
-  );
+  `${API_URL}/api/ai/violation`,
+  {
+    interviewId: state.interviewId,
+    type: "fullscreen",
+  }
+);
 
   if (response.data.status === "terminated") {
     navigate("/dashboard");
@@ -327,12 +327,12 @@ useEffect(() => {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/ai/next-question",
-        {
-          interviewId: state.interviewId,
-          answer,
-        }
-      );
+  `${API_URL}/api/ai/next-question`,
+  {
+    interviewId: state.interviewId,
+    answer,
+  }
+);
 
       setFeedback(response.data.feedback);
 
@@ -369,12 +369,12 @@ useEffect(() => {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/ai/next-question",
-        {
-          interviewId: state.interviewId,
-          answer: "Skipped",
-        }
-      );
+  `${API_URL}/api/ai/next-question`,
+  {
+    interviewId: state.interviewId,
+    answer: "Skipped",
+  }
+);
 
       setFeedback("Question Skipped.");
 
@@ -419,11 +419,11 @@ useEffect(() => {
     SpeechRecognition.stopListening();
 
     const response = await axios.post(
-      "http://localhost:5000/api/ai/end-interview",
-      {
-        interviewId: state.interviewId,
-      }
-    );
+  `${API_URL}/api/ai/end-interview`,
+  {
+    interviewId: state.interviewId,
+  }
+);
     console.log("END API RESPONSE:", response.data);
     console.log("InterviewId:", response.data.interviewId);
     setShowEndModal(false);
@@ -543,12 +543,12 @@ alert(message);
   onDisconnect={async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/ai/violation",
-        {
-          interviewId: state.interviewId,
-          type: "camera",
-        }
-      );
+  `${API_URL}/api/ai/violation`,
+  {
+    interviewId: state.interviewId,
+    type: "camera",
+  }
+);
       console.log("END API RESPONSE:", response.data);
 
       if (response.data.status === "terminated") {

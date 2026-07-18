@@ -5,6 +5,7 @@ import StatsCards from "../components/dashboard/StatsCards";
 import PerformanceChart from "../components/dashboard/PerformanceChart";
 import StreakCard from "../components/dashboard/StreakCard";
 import "../styles/Dashboard.css";
+import { API_URL } from "../config";
 
 function Dashboard() {
 
@@ -55,8 +56,8 @@ useEffect(() => {
     try {
 
       const response = await axios.get(
-        "http://localhost:5000/api/dashboard"
-      );
+  `${API_URL}/api/dashboard`
+);
 
       setStats(response.data.statistics);
 

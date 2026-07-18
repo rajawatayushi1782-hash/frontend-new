@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config";
 
 import {
   FaFileUpload,
@@ -89,9 +90,9 @@ function ResumeUpload() {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/api/resume/upload",
-        formData
-      );
+  `${API_URL}/api/resume/upload`,
+  formData
+);
 
       setResumeText(response.data.resumeText);
 

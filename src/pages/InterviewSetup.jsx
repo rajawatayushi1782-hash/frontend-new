@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config";
 
 function InterviewSetup() {
   const navigate = useNavigate();
@@ -26,17 +27,17 @@ function InterviewSetup() {
       const resumeId = localStorage.getItem("resumeId");
 
       const response = await axios.post(
-        "http://localhost:5000/api/ai/question",
-        {
-          role,
-          level,
-          experience,
-          type,
-          company,
-          language,
-          resumeId,
-        }
-      );
+  `${API_URL}/api/ai/question`,
+  {
+    role,
+    level,
+    experience,
+    type,
+    company,
+    language,
+    resumeId,
+  }
+);
 
       navigate("/interview", {
         state: {

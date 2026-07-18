@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/history.css";
+import { API_URL } from "../config";
 
 const History = () => {
   const [interviews, setInterviews] = useState([]);
@@ -17,7 +18,7 @@ const History = () => {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/history");
+      const res = await axios.get(`${API_URL}/api/history`);
       setInterviews(res.data.interviews);
     } catch (err) {
       console.error(err);
