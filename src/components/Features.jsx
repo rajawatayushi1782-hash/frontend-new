@@ -2,7 +2,7 @@ import "../styles/features.css";
 
 function Features() {
   return (
-    <section className="features" id="features">
+    <section id="features" className="features">
       <h2>Why Choose InterviewAce?</h2>
 
       <div className="feature-container">

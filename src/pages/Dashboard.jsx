@@ -55,8 +55,15 @@ useEffect(() => {
 
     try {
 
-      const response = await axios.get(
-  `${API_URL}/api/dashboard`
+      const token = localStorage.getItem("token");
+
+const response = await axios.get(
+  `${API_URL}/api/dashboard`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
 );
 
       setStats(response.data.statistics);

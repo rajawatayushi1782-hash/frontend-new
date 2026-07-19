@@ -1,4 +1,5 @@
 import "../styles/cta.css";
+import { Link } from "react-router-dom";
 
 function CTA() {
   return (
@@ -14,18 +15,17 @@ function CTA() {
           Practice AI-powered interviews, improve your resume,
           and get hired faster with InterviewAce AI.
         </p>
+<div className="cta-buttons">
 
-        <div className="cta-buttons">
+  <Link to="/signup" className="primary-btn">
+    Start Free
+  </Link>
 
-          <button className="primary-btn">
-            Start Free
-          </button>
+  <a href="#features" className="secondary-btn">
+    Learn More
+  </a>
 
-          <button className="secondary-btn">
-            Learn More
-          </button>
-
-        </div>
+</div>
 
       </div>
 

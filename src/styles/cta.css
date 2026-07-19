@@ -40,6 +40,11 @@
     font-size:17px;
     cursor:pointer;
     transition:.3s;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
 }
 
 .primary-btn{

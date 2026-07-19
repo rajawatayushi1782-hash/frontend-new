@@ -1,4 +1,5 @@
 import "../styles/hero.css";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -12,22 +13,25 @@ function Hero() {
       <div className="hero-content">
 
         <h1>
-          Crack Your Dream Job <span>With AI</span>
+          Land Your Dream Job <span>With AI</span>
         </h1>
 
         <p>
-          Practice HR & Technical Interviews, Analyze Your Resume,
-          Improve Communication Skills and Get Instant AI Feedback.
+          Experience realistic AI-powered mock interviews, analyze your resume,
+          improve communication skills, and receive detailed AI feedback to boost
+          your confidence.
         </p>
 
         <div className="hero-buttons">
-          <button className="start-btn">
-            Start Interview
-          </button>
 
-          <button className="learn-btn">
+          <Link to="/login" className="start-btn">
+            Start Interview
+          </Link>
+
+          <a href="#features" className="learn-btn">
             Learn More
-          </button>
+          </a>
+
         </div>
 
         {/* Stats Cards */}
