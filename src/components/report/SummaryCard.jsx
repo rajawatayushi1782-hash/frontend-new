@@ -1,4 +1,4 @@
-import "../../styles/Report.css";
+import "../../styles/report.css";
 
 function SummaryCard({
 

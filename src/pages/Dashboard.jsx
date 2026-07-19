@@ -4,7 +4,7 @@ import axios from "axios";
 import StatsCards from "../components/dashboard/StatsCards";
 import PerformanceChart from "../components/dashboard/PerformanceChart";
 import StreakCard from "../components/dashboard/StreakCard";
-import "../styles/Dashboard.css";
+import "../styles/dashboard.css";
 import { API_URL } from "../config";
 
 function Dashboard() {
