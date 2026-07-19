@@ -278,7 +278,13 @@ const response = await axios.get(
   </button>
 
   <button
-    onClick={() => navigate("/report")}
+    onClick={() => {
+  if (recentInterviews.length > 0) {
+    navigate(`/report/${recentInterviews[0]._id}`);
+  } else {
+    alert("No interview report found.");
+  }
+}}
     style={{
       padding: "15px 30px",
       background: "#0ea5e9",

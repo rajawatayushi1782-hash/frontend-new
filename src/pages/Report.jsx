@@ -66,10 +66,16 @@ const [insights, setInsights] = useState(null);
 
       try {
 
-        const response =
-  await axios.get(
-    `${API_URL}/api/ai/report/${interviewId}`
-  );
+        const token = localStorage.getItem("token");
+
+const response = await axios.get(
+  `${API_URL}/api/ai/report/${interviewId}`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
         setReport(
           response.data.report
         );

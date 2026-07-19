@@ -26,7 +26,9 @@ function InterviewSetup() {
 
       const resumeId = localStorage.getItem("resumeId");
 
-      const response = await axios.post(
+      const token = localStorage.getItem("token");
+
+const response = await axios.post(
   `${API_URL}/api/ai/question`,
   {
     role,
@@ -36,6 +38,11 @@ function InterviewSetup() {
     company,
     language,
     resumeId,
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   }
 );
 

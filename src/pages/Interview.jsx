@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -325,12 +326,18 @@ useEffect(() => {
     try {
 
       setLoading(true);
+const token = localStorage.getItem("token");
 
-      const response = await axios.post(
+const response = await axios.post(
   `${API_URL}/api/ai/next-question`,
   {
     interviewId: state.interviewId,
     answer,
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   }
 );
 
@@ -368,11 +375,18 @@ useEffect(() => {
 
       setLoading(true);
 
-      const response = await axios.post(
+      const token = localStorage.getItem("token");
+
+const response = await axios.post(
   `${API_URL}/api/ai/next-question`,
   {
     interviewId: state.interviewId,
     answer: "Skipped",
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   }
 );
 
@@ -418,10 +432,17 @@ useEffect(() => {
 
     SpeechRecognition.stopListening();
 
-    const response = await axios.post(
+    const token = localStorage.getItem("token");
+
+const response = await axios.post(
   `${API_URL}/api/ai/end-interview`,
   {
     interviewId: state.interviewId,
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   }
 );
     console.log("END API RESPONSE:", response.data);
@@ -442,7 +463,7 @@ localStorage.removeItem("currentInterview");
     console.error(err);
 
     const message =
-  error?.response?.data?.message ||
+  err?.response?.data?.message ||
   "Failed to end interview.";
 
 alert(message);
