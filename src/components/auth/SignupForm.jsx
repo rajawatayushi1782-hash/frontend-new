@@ -5,6 +5,7 @@ import { signupSchema } from "../../validation/signupSchema";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 import {
   FaEye,
@@ -19,7 +20,7 @@ function SignupForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -82,9 +83,16 @@ function SignupForm() {
   }
 );
 
-    alert(response.data.message);
+    localStorage.setItem("token", response.data.token);
 
-    console.log(response.data);
+localStorage.setItem(
+  "user",
+  JSON.stringify(response.data.user)
+);
+
+alert(" Account created successfully!");
+
+navigate("/dashboard");
 
   } catch (error) {
     console.error("Signup Error:", error);
